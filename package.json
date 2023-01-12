@@ -1,0 +1,31 @@
+{
+  "name": "suricatamikrotikips",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dzakharov90/SuricataIPS_Mikrotik.git"
+  },
+  "keywords": [
+    "suricata",
+    "ips",
+    "ids",
+    "mikrotik",
+    "firewall"
+  ],
+  "author": "dzakharov90",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dzakharov90/SuricataIPS_Mikrotik/issues"
+  },
+  "homepage": "https://github.com/dzakharov90/SuricataIPS_Mikrotik#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "mikronode-ng2": "^1.0.12",
+    "tail": "^2.2.5"
+  }
+}
