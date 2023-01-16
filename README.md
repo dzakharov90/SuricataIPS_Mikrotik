@@ -118,7 +118,7 @@ after installation, we need to edit the .env file and enter the correct data the
 ##### MIKROTIK_API_PASS="test123"
 ##### EXTERNAL_ADDR="ZZZ.ZZZ.ZZZ.ZZZ"
 ##### FWBLOCK_TIMEOUT="01:00:00" # 1 Hour by default
-##### RULES_SIDS="2024793,2035436,2021701"
+##### RULE_MATCH_REGEXP=/.[M-m]alware.|.MALWARE.|.[V-v]irus.|.VIRUS.|.[D-d]os.|.DOS.|.DoS.|.DDOS.|.DDoS.|.ddos.|.[M-m]inecraft.|.MINECRAFT.|.[M-m]ikrotik.|.[F-f]lood.|.FLOOD.|.[B-b]ackdoor.|.[O-o]verflow.|.NETBIOS.|.PHISHING.|.SCAN.|.SHELLCODE.|.WEB_CLIENT.|.WEB_SERVER.|.WEB_SPECIFIC_APPS.|.WORM.|.Malicious.|.HUNT.|.ADWARE_PUP.|.ATTACK_RESPONSE.|.EXPLOIT.|.SITE.|.MOBILE_MALWARE./gm
 
 I provided this information as an example.
 
@@ -127,7 +127,7 @@ I provided this information as an example.
 ##### MIKROTIK_API_PASS - user password.
 ##### EXTERNAL_ADDR - specify the address of the external interface.
 ##### FWBLOCK_TIMEOUT - blocking time. by default i set 1 hour.
-##### RULES_SIDS - a set of SID rules by which the application will tell the router to add it to the block list address.
+##### RULE_MATCH_REGEXP - a set of regexp rules by which the application will tell the router to add it to the block list address.
 
 you can get the SID of the rules in a file 
 * /var/lib/suricata/rules/suricata.rules
