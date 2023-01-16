@@ -129,7 +129,7 @@ I provided this information as an example.
 ##### FWBLOCK_TIMEOUT - blocking time. by default i set 1 hour.
 ##### RULE_MATCH_REGEXP - a set of regexp rules by which the application will tell the router to add it to the block list address.
 
-you can get the SID of the rules in a file 
+you can get the content of the rules in a file in "msg" section
 * /var/lib/suricata/rules/suricata.rules
 
 now we are ready to run our application
