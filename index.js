@@ -26,5 +26,24 @@ tail.on("line", data => {
                 console.log('IP ' + RuleMatch[4] + ' Banned for ' + RuleMatch[2])
             }
         }
-    };
+    } else if (data.match(/[A-Za-z]+ [\d]+ [\d]+\:[\d]+\:[\d]+ [A-Za-z ]+\[[\d]+]\: \[[\d]+\:([\d]+)\:[\d]+\] (.+) ([a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[\d]+) \-\> ([a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[\d]+)/gm)) {
+        const RuleMatch = /[A-Za-z]+ [\d]+ [\d]+\:[\d]+\:[\d]+ [A-Za-z ]+\[[\d]+]\: \[[\d]+\:([\d]+)\:[\d]+\] (.+) ([a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[\d]+) \-\> ([a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[\d]+)/gm.exec(data);
+        if(!data.match(process.env.EXTERNAL_V6ADDR_REGEXP)) {
+            console.log('Rule SID: ' + RuleMatch[1])
+            console.log('Rule : ' + RuleMatch[2])
+            console.log('SRC IP: ' + RuleMatch[3])
+            if (RuleMatch[2].match(process.env.RULE_MATCH_REGEXP)) {
+                mt.fw_block_ip6(RuleMatch[3],RuleMatch[2])
+                console.log('IP ' + RuleMatch[3] + ' Banned for ' + RuleMatch[2])
+            }
+        } else {
+            console.log('Rule SID: ' + RuleMatch[1])
+            console.log('Rule : ' + RuleMatch[2])
+            console.log('SRC IP: ' + RuleMatch[3])
+            if (RuleMatch[2].match(process.env.RULE_MATCH_REGEXP)) {
+                mt.fw_block_ip6(RuleMatch[4],RuleMatch[2])
+                console.log('IP ' + RuleMatch[4] + ' Banned for ' + RuleMatch[2])
+            }
+        }
+    }
 });
