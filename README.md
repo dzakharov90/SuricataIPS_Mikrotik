@@ -13,8 +13,13 @@ Next, I will describe the complete instructions for installing and configuring e
 
 xxx.xxx.xxx.xxx is the IP of the Linux server
 
-* /ip firewall add action=drop chain=input comment="Block bad actors" src-address-list=Blocked
-* /ip firewall add action=drop chain=forward comment="Drop any traffic going to bad actors" dst-address-list=Blocked
+* ip/firewall/raw/add action=drop chain=prerouting comment="IPS-drop_in_bad_traffic" src-address-list=Blocked
+* ip/firewall/raw/add action=drop chain=prerouting comment="IPS-drop_out_bad_traffic" dst-address-list=Blocked
+
+and for IPv6
+
+* ipv6/firewall/raw/add action=drop chain=prerouting comment="IPS-drop_in_ip6_bad_traffic" src-address-list=Blocked
+* ipv6/firewall/raw/add action=drop chain=prerouting comment="IPS-drop_out_ip6_bad_traffic" dst-address-list=Blocked
 
 Enabling Mikrotik API
 
@@ -117,6 +122,7 @@ after installation, we need to edit the .env file and enter the correct data the
 ##### MIKROTIK_API_USER="api"
 ##### MIKROTIK_API_PASS="test123"
 ##### EXTERNAL_ADDR="ZZZ.ZZZ.ZZZ.ZZZ"
+##### EXTERNAL_V6ADDR_REGEXP="/2001\:0470\:002[0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[\d]+/gm"
 ##### FWBLOCK_TIMEOUT="01:00:00" # 1 Hour by default
 ##### RULE_MATCH_REGEXP=/.[M-m]alware.|.MALWARE.|.[V-v]irus.|.VIRUS.|.[D-d]os.|.DOS.|.DoS.|.DDOS.|.DDoS.|.ddos.|.[M-m]inecraft.|.MINECRAFT.|.[M-m]ikrotik.|.[F-f]lood.|.FLOOD.|.[B-b]ackdoor.|.[O-o]verflow.|.NETBIOS.|.PHISHING.|.SCAN.|.SHELLCODE.|.WEB_CLIENT.|.WEB_SERVER.|.WEB_SPECIFIC_APPS.|.WORM.|.Malicious.|.HUNT.|.ADWARE_PUP.|.ATTACK_RESPONSE.|.EXPLOIT.|.SITE.|.MOBILE_MALWARE./gm
 
@@ -126,6 +132,7 @@ I provided this information as an example.
 ##### MIKROTIK_API_USER - username is specified here.
 ##### MIKROTIK_API_PASS - user password.
 ##### EXTERNAL_ADDR - specify the address of the external interface.
+##### EXTERNAL_V6ADDR_REGEXP - regexp of your network and router adressess 
 ##### FWBLOCK_TIMEOUT - blocking time. by default i set 1 hour.
 ##### RULE_MATCH_REGEXP - a set of regexp rules by which the application will tell the router to add it to the block list address.
 
@@ -139,3 +146,5 @@ run:
 * node index.js
 
 that's all :)
+
+p.s.: for questions and suggestions, please contact telegram dzakharov90 or email dzakharov@yulsip.com
