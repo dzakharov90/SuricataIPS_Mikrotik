@@ -122,9 +122,9 @@ after installation, we need to edit the .env file and enter the correct data the
 ##### MIKROTIK_API_USER="api"
 ##### MIKROTIK_API_PASS="test123"
 ##### EXTERNAL_ADDR="ZZZ.ZZZ.ZZZ.ZZZ"
-##### EXTERNAL_V6ADDR_REGEXP="/2001\:0470\:002[0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[\d]+/gm"
+##### EXTERNAL_V6ADDR_REGEXP="2001\:0470\:002[0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[a-z0-9]+\:[\d]+"
 ##### FWBLOCK_TIMEOUT="01:00:00" # 1 Hour by default
-##### RULE_MATCH_REGEXP=/.[M-m]alware.|.MALWARE.|.[V-v]irus.|.VIRUS.|.[D-d]os.|.DOS.|.DoS.|.DDOS.|.DDoS.|.ddos.|.[M-m]inecraft.|.MINECRAFT.|.[M-m]ikrotik.|.[F-f]lood.|.FLOOD.|.[B-b]ackdoor.|.[O-o]verflow.|.NETBIOS.|.PHISHING.|.SCAN.|.SHELLCODE.|.WEB_CLIENT.|.WEB_SERVER.|.WEB_SPECIFIC_APPS.|.WORM.|.Malicious.|.HUNT.|.ADWARE_PUP.|.ATTACK_RESPONSE.|.EXPLOIT.|.SITE.|.MOBILE_MALWARE./gm
+##### RULE_MATCH_REGEXP=".[M-m]alware.|.MALWARE.|.[V-v]irus.|.VIRUS.|.[D-d]os.|.DOS.|.DoS.|.DDOS.|.DDoS.|.ddos.|.[M-m]inecraft.|.MINECRAFT.|.[M-m]ikrotik.|.[F-f]lood.|.FLOOD.|.[B-b]ackdoor.|.[O-o]verflow.|.NETBIOS.|.PHISHING.|.SCAN.|.SHELLCODE.|.WEB_CLIENT.|.WEB_SERVER.|.WEB_SPECIFIC_APPS.|.WORM.|.Malicious.|.HUNT.|.ADWARE_PUP.|.ATTACK_RESPONSE.|.EXPLOIT.|.SITE.|.MOBILE_MALWARE."
 
 I provided this information as an example.
 
