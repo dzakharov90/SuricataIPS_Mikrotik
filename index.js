@@ -41,7 +41,7 @@ tail.on("line", data => {
                 mt.fw_block_ip6(RuleMatch[3],RuleMatch[2])
                 console.log('IP ' + RuleMatch[3] + ' Banned for ' + RuleMatch[2])
             }
-        } else if(RuleMatch.match(ipv6addr)) {
+        } else {
             console.log('Rule SID: ' + RuleMatch[1])
             console.log('Rule : ' + RuleMatch[2])
             console.log('DST IP: ' + RuleMatch[4])
@@ -50,6 +50,6 @@ tail.on("line", data => {
                 mt.fw_block_ip6(RuleMatch[4],RuleMatch[2])
                 console.log('IP ' + RuleMatch[4] + ' Banned for ' + RuleMatch[2])
             }
-        } else console.log('IPv6 Not Matched')
+        }
     }
 });
