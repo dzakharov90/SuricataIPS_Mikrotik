@@ -8,3 +8,7 @@ var chan=conn.openChannel();
 module.exports.fw_block_ip = function(ip,comment) {
     chan.write(['/ip/firewall/address-list/add',`=address=${ip}`,`=timeout=${process.env.FWBLOCK_TIMEOUT}`,`=comment=${comment}`,'=list=Blocked'])
 }
+
+module.exports.fw_block_ip6 = function(ip,comment) {
+    chan.write(['/ipv6/firewall/address-list/add',`=address=${ip}`,`=timeout=${process.env.FWBLOCK_TIMEOUT}`,`=comment=${comment}`,'=list=Blocked'])
+}
