@@ -104,7 +104,7 @@ This is a simple nodeJS application. We need to clone it, configure it and run i
 
 ### [NodeJS installation]
 
-* curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash - &&\
+* curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash -
 * apt-get install -y nodejs
 
 ### [App]
